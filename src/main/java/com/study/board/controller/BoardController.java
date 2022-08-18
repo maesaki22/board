@@ -76,7 +76,6 @@ public class BoardController {
     public String boardUpdate(@PathVariable("id") Integer id,Board board,Model model,MultipartFile file) throws  Exception{
 
         Board boardTemp = boardService.boardView(id);
-
         boardTemp.setTitle(board.getTitle());
         boardTemp.setContent(board.getContent());
         boardService.write(boardTemp,file);
