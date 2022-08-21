@@ -20,8 +20,8 @@ public class BoardService {
     public void write(Board board, MultipartFile file) throws Exception{
 
         if(file!=null){
-            String projectPath = System.getProperty("user.dir") + "\\src\\main\\resources\\static\\files";
             UUID uuid = UUID.randomUUID();
+            String projectPath = System.getProperty("user.dir") + "\\src\\main\\resources\\static\\files";
             String fileName = uuid+ "_" + file.getOriginalFilename();
 
             File saveFile = new File(projectPath,fileName);
