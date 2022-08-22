@@ -73,11 +73,11 @@ public class BoardController {
 
     @PostMapping("/board/update/{id}")
     public String boardUpdate(@PathVariable("id") Integer id,Board board,Model model,MultipartFile file) throws  Exception{
-
-        Board boardTemp = boardService.boardView(id);
-        boardTemp.setTitle(board.getTitle());
-        boardTemp.setContent(board.getContent());
-        boardService.write(boardTemp,file);
+        // Board 를 넘겨받았는데 boardTemp를 선언을 왜하였을까..?
+        Board boardTemp = boardService.boardView(id);   // id값으로 목록에서 받아온다음 boardTemp에 저장
+        boardTemp.setTitle(board.getTitle());       // boardTemp로 받아온 board 내용을 옮긴다.
+        boardTemp.setContent(board.getContent());   // 제목+내용
+        boardService.write(boardTemp,file);         // 변경된 BoardTemp와 file을 저장한다.
 
         model.addAttribute("message","글 수정이 완료되었습니다.");
         model.addAttribute("searchUrl","/board/list");
